@@ -25,8 +25,9 @@ public class GlowstonePopulator extends BlockPopulator {
         BlockFace.NORTH, BlockFace.SOUTH, BlockFace.UP, BlockFace.WEST};
 
     /**
-     * Populates a world with glowstone. Easily configurable (but results in
-     * more rare glowstone) by modifying the suitable()-method.
+     * Populates a chunk with glowstone. Easily configurable (but results in
+     * more rare glowstone) by modifying the suitable()-method. You could also
+     * Remove the suitable()-check to have glowstone anywhere.
      * 
      * @param world World
      * @param random Random
