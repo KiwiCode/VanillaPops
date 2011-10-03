@@ -1,7 +1,12 @@
 // Package Declaration
 package me.iffa.vanillapops;
 
+// Java Imports
+import java.util.ArrayList;
+import java.util.List;
+
 // VanillaPops Imports
+import me.iffa.vanillapops.utils.TestGenerator;
 import me.iffa.vanillapops.populators.BedrockPopulator;
 import me.iffa.vanillapops.populators.CavePopulator;
 import me.iffa.vanillapops.populators.DungeonPopulator;
@@ -13,6 +18,7 @@ import me.iffa.vanillapops.populators.biome.TreePopulator;
 import me.iffa.vanillapops.populators.nether.GlowstonePopulator;
 
 // Bukkit Imports
+import org.bukkit.generator.BlockPopulator;
 import org.bukkit.plugin.Plugin;
 
 /**
@@ -23,6 +29,8 @@ import org.bukkit.plugin.Plugin;
 public class VanillaPops {
     // Variables - TODO: Place populator variables here.
     private Plugin plugin;
+    private List<BlockPopulator> populators = new ArrayList<BlockPopulator>();
+    private TestGenerator testGenerator = new TestGenerator(this);
     private BedrockPopulator bedrockPopulator = new BedrockPopulator();
     private CavePopulator cavePopulator;
     private OrePopulator orePopulator = new OrePopulator();
@@ -40,8 +48,47 @@ public class VanillaPops {
      */
     public VanillaPops(Plugin plugin) {
         this.plugin = plugin;
-        // Initializing all populators that need the plugin instance
+        // Initializing all populators that need the plugin instance.
         this.cavePopulator = new CavePopulator(plugin);
+        // Building the populator list.
+        buildPopulatorList();
+    }
+    
+    /**
+     * Adds all populators to the populator list.
+     */
+    private void buildPopulatorList() {
+        populators.add(bedrockPopulator);
+        populators.add(cavePopulator);
+        populators.add(orePopulator);
+        populators.add(treePopulator);
+        populators.add(flowerPopulator);
+        populators.add(snowPopulator);
+        populators.add(desertPopulator);
+        populators.add(dungeonPopulator);
+        populators.add(glowstonePopulator);
+    }
+    
+    /**
+     * Gets the plugin that is using VanillaPops.
+     * 
+     * @return Plugin using VanillaPops
+     */
+    public Plugin getPlugin() {
+        return this.plugin;
+    }
+    
+    /**
+     * Gets the test generator.
+     * 
+     * @return Test generator
+     */
+    public TestGenerator getTestGenerator() {
+        return this.testGenerator;
+    }
+    
+    public List<BlockPopulator> getPopulators() {
+        return this.populators;
     }
 
     /**
