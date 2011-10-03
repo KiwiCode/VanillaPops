@@ -6,7 +6,10 @@ import me.iffa.vanillapops.populators.BedrockPopulator;
 import me.iffa.vanillapops.populators.CavePopulator;
 import me.iffa.vanillapops.populators.DungeonPopulator;
 import me.iffa.vanillapops.populators.FlowerPopulator;
-import me.iffa.vanillapops.populators.SnowPopulator;
+import me.iffa.vanillapops.populators.OrePopulator;
+import me.iffa.vanillapops.populators.biome.DesertPopulator;
+import me.iffa.vanillapops.populators.biome.SnowPopulator;
+import me.iffa.vanillapops.populators.biome.TreePopulator;
 import me.iffa.vanillapops.populators.nether.GlowstonePopulator;
 
 // Bukkit Imports
@@ -22,8 +25,11 @@ public class VanillaPops {
     private Plugin plugin;
     private BedrockPopulator bedrockPopulator = new BedrockPopulator();
     private CavePopulator cavePopulator;
+    private OrePopulator orePopulator = new OrePopulator();
+    private TreePopulator treePopulator = new TreePopulator();
     private FlowerPopulator flowerPopulator = new FlowerPopulator();
     private SnowPopulator snowPopulator = new SnowPopulator();
+    private DesertPopulator desertPopulator = new DesertPopulator();
     private DungeonPopulator dungeonPopulator = new DungeonPopulator();
     private GlowstonePopulator glowstonePopulator = new GlowstonePopulator();
     
@@ -65,6 +71,33 @@ public class VanillaPops {
      */
     public DungeonPopulator getDungeonPopulator() {
         return this.dungeonPopulator;
+    }
+    
+    /**
+     * Gets the ore populator.
+     * 
+     * @return Ore populator
+     */
+    public OrePopulator getOrePopulator() {
+        return this.orePopulator;
+    }
+    
+    /**
+     * Gets the tree populator.
+     * 
+     * @return Tree populator
+     */
+    public TreePopulator getTreePopulator() {
+        return this.treePopulator;
+    }
+    
+    /**
+     * Gets the desert populator.
+     * 
+     * @return Desert populator
+     */
+    public DesertPopulator getDesertPopulator() {
+        return this.desertPopulator;
     }
     
     /**

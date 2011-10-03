@@ -1,5 +1,5 @@
 // Package Declaration
-package me.iffa.vanillapops.populators;
+package me.iffa.vanillapops.populators.biome;
 
 // Java Imports
 import java.util.Random;
