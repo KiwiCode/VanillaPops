@@ -22,6 +22,7 @@ import org.bukkit.generator.ChunkGenerator;
  */
 public class TestGenerator extends ChunkGenerator {
     // Variables
+
     private VanillaPops vanillaPops;
 
     /**
@@ -63,12 +64,11 @@ public class TestGenerator extends ChunkGenerator {
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
                 result[xyzToByte(x, 0, z)] = (byte) Material.BEDROCK.getId();
+                result[xyzToByte(x, 65, z)] = (byte) Material.GRASS.getId();
                 // Adds some stone
                 for (int y = 1; y < 64; y++) {
                     if (y != 64) {
-                    result[xyzToByte(x, y, z)] = (byte) Material.STONE.getId();
-                    } else {
-                        result[xyzToByte(x, y, z)] = (byte) Material.GRASS.getId();
+                        result[xyzToByte(x, y, z)] = (byte) Material.STONE.getId();
                     }
                 }
             }
